@@ -1,19 +1,17 @@
-import { combineReducers,applyMiddleware} from 'redux'
-import  ch from './dispatch'
+import { STORE_DATA } from "./actionType";
 
-const rootreduce=combineReducers({
+  const initState = {
+      data:[],
+  }
 
-    ch
-});
+  const reducer = (state=initState, action)=>{
+      switch(action.type){
+          case STORE_DATA:
+              return {...state, data :action.payload}
+            
+              default:
+                  return state;
+      }
+  }
 
-
-const midle=(store)=>(next)=>(action)=>{
-  
-    return next(action)
-   
-}
-
-export {midle};
-
-
-export default rootreduce
+  export {reducer}

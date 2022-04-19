@@ -1,14 +1,9 @@
-import rootreduce from "./reducer";
+import { reducer } from "./reduce";
+import { legacy_createStore as createStore} from 'redux'
 
-import { applyMiddleware, createStore,Middleware } from "redux";
-
-
-import { midle } from "./reducer";
-
-const store=createStore(rootreduce,applyMiddleware(midle)
+const store = createStore(reducer)
     
     
-    );
 
 
-export default store;
+export {store};

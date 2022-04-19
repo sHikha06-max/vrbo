@@ -1,12 +1,1 @@
-
-
-
-
-   
-export const dele=(pay)=>{
-
-    return {
-        type:'ID',
-        pay:pay
-    }
-}
+export const STORE_DATA = "STORE_DATA";
