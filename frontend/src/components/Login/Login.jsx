@@ -1,88 +1,103 @@
-import React, { useState } from "react";
 
 
+import React from 'react'
+import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+//import './loginpage.css'
+import Button from '@mui/material/Button';
+
+
+const axios = require('axios');
 
 
 function Login() {
-  
-  const [errorMessages, setErrorMessages] = useState({});
-  const [isSubmitted, setIsSubmitted] = useState(false);
 
-  
-  const database = [
-    {
-      username: "user1",
-      password: "pass1"
-    },
-    {
-      username: "user2",
-      password: "pass2"
-    }
-  ];
+ const [user,setuser]=useState({
+     mobile:'',
+     password:''
+ })
 
-  const errors = {
-    uname: "invalid username",
-    pass: "invalid password"
-  };
+    const change=useHistory()
 
-  const handleSubmit = (event) => {
+function signuphandel(){
+
+    change.push('/signup')
+}
+
+
+function handel(e){
+
+    const {name,value}=e.target
+
+    setuser({
+
+        ...user,
+        [name]:value
+    })
+
+
+}
+
+function submit(e){
+
+    e.preventDefault()
+
+    axios.get(" http://localhost:3000/user", {
    
-    event.preventDefault();
-
-    var { uname, pass } = document.forms[0];
-
-    
-    const userData = database.find((user) => user.username === uname.value);
-
-    
-    if (userData) {
-      if (userData.password !== pass.value) {
         
-        setErrorMessages({ name: "pass", message: errors.pass });
-      } else {
-        setIsSubmitted(true);
-      }
-    } else {
-      
-      setErrorMessages({ name: "uname", message: errors.uname });
-    }
-  };
+        
+        
 
-  
-  const renderErrorMessage = (name) =>
-    name === errorMessages.name && (
-      <div className="error">{errorMessages.message}</div>
-    );
+}).then(resp => {
 
-  
-  const renderForm = (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>Username </label>
-          <input type="text" name="uname" required />
-          {renderErrorMessage("uname")}
-        </div>
-        <div className="input-container">
-          <label>Password </label>
-          <input type="password" name="pass" required />
-          {renderErrorMessage("pass")}
-        </div>
-        <div className="button-container">
-          <input type="submit" />
-        </div>
-      </form>
-    </div>
-  );
+    const data = resp.data;
 
-  return (
-    <div className="app">
-      <div className="login-form">
-        <div className="title">Sign In</div>
-        {isSubmitted ? <div>User is successfully logged in</div> : renderForm}
-      </div>
-    </div>
-  );
+    data.map(function(el){
+        if(el.email==user.email&& el.password==user.password){
+            change.push("/register")
+        }
+        
+    })
+    
+
+ 
+ 
+
+
+
+
+   
+
+}).catch(error => {
+
+return "error"
+
+
+});
+
+
+}
+
+    return (
+        <div className='loginbox'>
+            <label className='loginhead'>LOGIN</label>
+            <div className='innerdiv'>
+                <h5 className='logla'>email</h5>
+            <input className='i' onChange={handel} name='email'/>
+            </div>
+            <div className='innerdiv'>
+                <h5 className='logla'>PASSWORD</h5>
+            <input className='i' onChange={handel} name='password'/>
+            </div>
+
+            
+            
+            <h5 style={{marginLeft:"50px"}}>By signing in, I agree to the Vrbo Terms and Conditions and Privacy Statement.<span style={{color:"rgb(255, 217, 0)",textDecoration: "underline",fontSize:"15px"}} onClick={signuphandel} >Sign up</span></h5>
+            <div className='butdiv'>
+            <Button className='logbutton' onClick={submit}  variant="contained">Log In</Button>
+            </div>
+        </div>
+    )
 }
 
 export default Login
