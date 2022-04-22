@@ -1,0 +1,55 @@
+
+body{
+    background-color: #F9F8F7;
+    width: 100%;
+    height: 20%;
+}
+.mainDiv{
+    display: flex;
+    justify-content: space-between;
+    /* border: 2px solid red; */
+    width: 98%;
+    height: 20%;
+    background-color: #F9F8F7;
+}
+
+.logo{
+    width: 40%;
+    padding: 1%;
+}
+.image{
+    /* border: 1px solid green; */
+    width: 20%;
+
+}
+.rightDiv{
+    border: 1px;
+    width: 70%;
+    /* border: 1px solid blue; */
+    /* display: flex; */
+
+}
+
+.list {
+    
+    display: flex;
+    justify-content:space-evenly;
+    /* border: 1px solid violet; */
+    width: 100%;
+    color: #15326F;
+    margin: auto;
+    margin: 3%
+   
+   
+}
+
+
+
+/* li{
+    float: right;
+} */
+.box{
+    border-radius: 15px ;
+    border: 1px solid #15326F;
+    padding: 1%;
+}

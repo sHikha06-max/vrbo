@@ -5,6 +5,8 @@ import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 //import './loginpage.css'
 import Button from '@mui/material/Button';
+import { Navbar } from '../Navbar/Navbar';
+
 
 
 const axios = require('axios');
@@ -79,7 +81,9 @@ return "error"
 }
 
     return (
+        
         <div className='loginbox'>
+            <Navbar></Navbar>
             <label className='loginhead'>LOGIN</label>
             <div className='innerdiv'>
                 <h5 className='logla'>email</h5>

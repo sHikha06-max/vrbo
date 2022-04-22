@@ -1,195 +1,48 @@
+import "./Navbar.css"
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import PersonAddAlt1OutlinedIcon from '@mui/icons-material/PersonAddAlt1Outlined';
+import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import KeyboardArrowDownOutlined from "@mui/icons-material/KeyboardArrowDownOutlined";
+//import {Icon_Flag_US} from 'material-ui-country-flags';
+const Navbar = ()=>{
+   return <div>
+       <div className="mainDiv">
+       <div className="image">
+           <img className="logo" src="data:image/png;base64,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"/>
+       </div>
 
+       <div className="rightDiv">
+           <div className="list">
+               <div>
+                   <FavoriteBorderOutlinedIcon style={{ color: "#15326F", fontSize:"small" }}></FavoriteBorderOutlinedIcon> Trips Board
+                   </div>
 
-// import * as React from 'react';
+               <div>
+                   <PersonOutlineOutlinedIcon style={{ color: "#15326F", fontSize:"small" }}></PersonOutlineOutlinedIcon>Login
+                   <KeyboardArrowDownOutlined style={{ color: "#797979", fontSize:"small" }}></KeyboardArrowDownOutlined>
+                   </div>
 
-// import AppBar from '@mui/material/AppBar';
-// import Box from '@mui/material/Box';
-// import Toolbar from '@mui/material/Toolbar';
-// import IconButton from '@mui/material/IconButton';
-// import Typography from '@mui/material/Typography';
-// import Button from '@mui/material/Button';
-// import { Image } from 'mui-image'
+               <div>
+                   <PersonAddAlt1OutlinedIcon style={{ color: "#15326F", fontSize:"small" }}></PersonAddAlt1OutlinedIcon>Register
+                   </div>
 
-// import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
-// import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+               <div>
+                   <HelpOutlineOutlinedIcon style={{ color: "#15326F", fontSize:"small" }}></HelpOutlineOutlinedIcon>Help
+                   <KeyboardArrowDownOutlinedIcon style={{ color: "#797979" , fontSize:"small"}}></KeyboardArrowDownOutlinedIcon>
+                   </div>
 
-// import PermIdentityOutlinedIcon from '@mui/icons-material/PermIdentityOutlined';
-// import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
-// import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-// import "../../Images/vrbo.png"
-// import { IconFlagUS} from 'material-ui-flags';
+               <div>USD ($)</div>
+               <div>EN</div>
+               <div className="box">List your Property
+               </div>
+           </div>
+       </div>
+       </div>
+   </div>
+}
 
-
-// // backgroundColor:{
-// //       backgroundColor: "#F9F8F7",
-// //       color : "black",
-// //       fontSize : 40
-// //     }
-
-
-
-// const Navbar=()=> {
-
-
-//   return (
-//     <Box sx={{ flexGrow: 1 }}
-//     backgroundColor= "#F9F8F7"
-//     color = "black"
-//     >
-//       <AppBar position="static"
-//        backgroundColor= "#F9F8F7">
-//         <Toolbar>
-//           <IconButton
-//             size="small"
-//             edge="start"
-//           //  color="inherit"
-//             aria-label="open drawer"
-//             sx={{ mr: 3}}
-//           >
-//            <Image src="data:image/png;base64,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"/>
-//           </IconButton>
-         
-            
-          
-         
-//           <Box sx={{ flexGrow: 2 }} 
-//            backgroundColor= "#F9F8F7"
-//            color = "black"/>
-//           <Box sx={{ display: { xs: 'none', md: 'flex' } }}
-//           backgroundColor= "#F9F8F7"
-//            color = "black">
-//             <IconButton size="large"  color="inherit">
-             
-//               <FavoriteBorderOutlinedIcon/>
-//                 <Typography
-//             variant="h5"
-//             noWrap
-//             component="div"
-//             sx={{ display: { xs: 'none', sm: 'block' } }}
-//           >
-//             Trip Boards
-//           </Typography>
-            
-//               </IconButton>
-
-
-//             <IconButton
-//               size="large"
-            
-//               color="inherit"
-//             >
-             
-//                 <PermIdentityOutlinedIcon/>
-
-//                 <Typography
-//             variant="h5"
-//             noWrap
-//             component="div"
-//             sx={{ display: { xs: 'none', sm: 'block' } }}
-//           >
-//             Log in
-//             <KeyboardArrowDownOutlinedIcon />
-//           </Typography>
-             
-//             </IconButton>
-
-
-//             <IconButton
-//               size="small"
-           
-//               aria-label="account of current user"
-//              aria-haspopup="true"
-           
-//               color="inherit"
-//             >
-//               <PersonAddAltOutlinedIcon />
-//               <Typography
-//             variant="h5"
-//             noWrap
-//             component="div"
-//             sx={{ display: { xs: 'none', sm: 'block' } }}
-//           >
-//             Sign Up
-//           </Typography>
-//             </IconButton>
-
-
-//             <IconButton
-//               size="small" 
-//               aria-label="account of current user"
-           
-//               aria-haspopup="true"
-          
-//               color="inherit"
-//             >
-//               <HelpOutlineOutlinedIcon />
-//               <Typography
-//             variant="h5"
-//             noWrap
-//             component="div"
-//             sx={{ display: { xs: 'none', sm: 'block' } }}
-//           >
-//             Help
-//             <KeyboardArrowDownOutlinedIcon />
-//           </Typography>
-//             </IconButton>
-
-
-//             <IconButton
-//               size="small"
-            
-//               aria-label="account of current user"
-            
-//               aria-haspopup="true"
-           
-//               color="inherit"
-//             >
-//               <Typography
-//             variant="h5"
-//             noWrap
-//             component="div"
-//             sx={{ display: { xs: 'none', sm: 'block' } }}
-//           >
-             
-//             USD ($)
-//          </Typography>
-//             </IconButton>
-
-//             <IconButton
-//               size="small"
-           
-//               aria-label="account of current user"
-           
-//               aria-haspopup="true"
-           
-//               color="inherit"
-//             >
-//               <Typography
-//             variant="h5"
-//             noWrap
-//             component="div"
-            
-//             sx={{ display: { xs: 'none', sm: 'block' } }}
-//           >
-//              <IconButton> <IconFlagUS /></IconButton>
-//             EN
-//          </Typography>
-//             </IconButton>
-
-//             <Button variant="outlined" color="error">List your property</Button>
-
-            
-
-
-//           </Box>
-         
-//         </Toolbar>
-//       </AppBar>
-     
-//     </Box>
-//   );
-// }
-
-// export {Navbar}
+export {Navbar}
 
 
