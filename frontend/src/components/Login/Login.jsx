@@ -2,7 +2,7 @@
 
 import React from 'react'
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import {  Link, useNavigate } from 'react-router-dom'
 import './Login.css'
 import Button from '@mui/material/Button';
 import { Navbar } from '../Navbar/Navbar';
@@ -22,7 +22,7 @@ function Login() {
      password:''
  })
 
-    const change=useHistory()
+    const change=useNavigate()
 
 function signuphandel(){
 
@@ -47,7 +47,7 @@ function submit(e){
 
     e.preventDefault()
 
-    axios.get(" http://localhost:3000/user", {
+    axios.get("http://localhost:8000/user", {
    
         
         
@@ -59,7 +59,8 @@ function submit(e){
 
     data.map(function(el){
         if(el.email==user.email&& el.password==user.password){
-            change.push("/")
+           // change.push("/")
+           change("/");
         }
         
     })
@@ -97,7 +98,7 @@ return "error"
            <div className='innerdiv'>
             <p style={{marginLeft:"50px"}}>By signing in, I agree to the Vrbo <a href='#' style={{textDecoration:"none",color:"#15326F"}}>Terms and Conditions</a> and <a href='#' style={{textDecoration:"none",color:"#15326F"}}> Privacy Statement</a>.</p>
             <div className='butdiv'>
-            <Button className='logbutton' onClick={submit}  variant="contained" >Log In</Button>
+        <Button className='logbutton' onClick={submit}  variant="contained" >Log In</Button>
             </div>
             <p>Don't have an account? <a href = "/register" style={{textDecoration:"none",color:"#15326F"}}>Create One</a></p>
             </div>

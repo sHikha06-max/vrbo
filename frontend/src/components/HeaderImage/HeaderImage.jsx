@@ -1,10 +1,11 @@
 import { Button } from "@mui/material"
 import { Navbar } from "../Navbar/Navbar"
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import {  useNavigate, Link } from 'react-router-dom'
 import { SearchForm } from "../Search/SearchForm"
 
 import "./HeaderImage.css"
+import { FooterImage } from "../FooterImage/FooterImage"
 
 
 
@@ -18,7 +19,7 @@ const HeaderImage=()=>{
     
 })
 
-   const change=useHistory()
+   const change=useNavigate()
 
 
 
@@ -73,7 +74,7 @@ localStorage.setItem("storePlaceData",JSON.stringify([]))
          localStorage.setItem("storePlaceData",JSON.stringify(someData))
         // console.log(someData)
        }
-       change.push("/placeDetail")
+       change("/placeDetail");
 
        
    })
@@ -98,10 +99,16 @@ return "error"
                    <div className="Input"><input type="date" placeholder="Check In" ></input>
                    <input type="date" placeholder="Check Out" ></input></div>
                    <div className="Input"><input type="number" placeholder="Guests"  ></input></div>
-                   <Button onClick={submit}>Search</Button>
+                 
+                      <Button onClick={submit}  className="Input">
+                          Search
+                          </Button>
+                          
                </div>
              </div>
     </div>
+
+    <FooterImage/>
  </div>
 }
 

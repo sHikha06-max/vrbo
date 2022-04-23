@@ -1,0 +1,48 @@
+/* body{
+    background-image: url("https://odis.homeaway.com/odis/homepage/1bb3a26d-9eff-45c8-815e-3890dfdd514d.hp-lyp-large.jpg");
+    width: 90%;
+    background-repeat: no-repeat;
+    border: 2px solid red;
+    background-size: cover;
+} */
+
+.backImage{
+     background-image: url("https://odis.homeaway.com/odis/homepage/1bb3a26d-9eff-45c8-815e-3890dfdd514d.hp-lyp-large.jpg"); 
+    
+    background-repeat: no-repeat;
+    /* border: 2px solid red; */
+    background-size: cover;
+    height: 400px;
+    
+    /* background-image: url("https://odis.homeaway.com/odis/homepage/1bb3a26d-9eff-45c8-815e-3890dfdd514d.hp-lyp-large.jpg"); */
+   
+}
+
+
+.searchOnImages{
+    
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    width: 47%;
+    
+    
+ }
+
+ .headingOnImage{
+    color: white;
+    
+    padding-top: 7%;
+ }
+
+ .listProperty{
+     border: 1px solid black;
+     border-radius: 100px;
+     background-color: rgba(0,0,0,.7);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: none;
+    width: 40%;
+    margin:auto;
+    
+ }

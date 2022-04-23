@@ -8,17 +8,24 @@ const Header = () => {
     const dispatch = useDispatch()
 
     useEffect(()=>{
-        fetch(" http://localhost:3000/images")
+        fetch("http://localhost:3000/images")
         .then((res) => res.json())
         .then((res) => dispatch(storeData(res)))
         .catch((err)=> console.log(err))
     },[])
 
     const data = useSelector((state)=>state.data);
-    console.log(data);
+   // console.log(data,"dd");
 
     return  <div>
-            Header
+        { console.log(data,"dd")}
+           {/* <div>
+      {data.images.map((images, i) => (
+        <div className="item" key={i}>
+          <img src={images.imageName}  key={i} />
+        </div>
+      ))}
+    </div> */}
         </div>
     
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useNavigate } from 'react-router-dom'
 import { FormControl, FormControlLabel, FormGroup } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
@@ -20,7 +20,7 @@ function Register() {
      last_name:"",
  })
 
-    const change=useHistory()
+    const change=useNavigate()
 
 
 
@@ -46,7 +46,7 @@ function submit(e){
         email:user.email
     }
 
-    axios.post(" http://localhost:3000/user", {
+    axios.post("http://localhost:8000/user", {
    
           email: user.email,
           password:user.password,
@@ -58,7 +58,7 @@ function submit(e){
 
 }).then(resp => {
     console.log(resp)
-
+    change("/");
 }).catch(error => {
 
 return "error"
