@@ -1,0 +1,8 @@
+
+const Footer = () =>{
+  
+
+    
+}
+
+export {Footer}

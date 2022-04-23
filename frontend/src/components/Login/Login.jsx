@@ -3,9 +3,12 @@
 import React from 'react'
 import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-//import './loginpage.css'
+import './Login.css'
 import Button from '@mui/material/Button';
 import { Navbar } from '../Navbar/Navbar';
+import { NavbarImage } from '../Navbar/NavbarImage';
+import Checkbox from '@mui/material/Checkbox';
+import { FormControl, FormControlLabel, FormGroup } from '@mui/material';
 
 
 
@@ -56,49 +59,47 @@ function submit(e){
 
     data.map(function(el){
         if(el.email==user.email&& el.password==user.password){
-            change.push("/register")
+            change.push("/")
         }
         
     })
-    
-
- 
- 
-
-
-
-
-   
-
 }).catch(error => {
 
 return "error"
-
-
 });
-
-
 }
 
     return (
         
         <div className='loginbox'>
-            <Navbar></Navbar>
-            <label className='loginhead'>LOGIN</label>
+            <NavbarImage/>
+            
             <div className='innerdiv'>
-                <h5 className='logla'>email</h5>
-            <input className='i' onChange={handel} name='email'/>
+               <h2>Sign In</h2>
+            <input className='inputBox' onChange={handel} name='email' placeholder='Enter Email'/>
+           
             </div>
             <div className='innerdiv'>
-                <h5 className='logla'>PASSWORD</h5>
-            <input className='i' onChange={handel} name='password'/>
+               
+            <input className='inputBox' onChange={handel} name='password' placeholder='Enter password'/>
             </div>
-
             
-            
-            <h5 style={{marginLeft:"50px"}}>By signing in, I agree to the Vrbo Terms and Conditions and Privacy Statement.<span style={{color:"rgb(255, 217, 0)",textDecoration: "underline",fontSize:"15px"}} onClick={signuphandel} >Sign up</span></h5>
+            <div className='innerdiv'>
+            <FormControlLabel
+          value="end"
+          className='checked'
+          control={<Checkbox />}
+          label="Keep me signed in."
+          labelPlacement="end"
+        />
+        
+           </div>
+           <div className='innerdiv'>
+            <p style={{marginLeft:"50px"}}>By signing in, I agree to the Vrbo <a href='#' style={{textDecoration:"none",color:"#15326F"}}>Terms and Conditions</a> and <a href='#' style={{textDecoration:"none",color:"#15326F"}}> Privacy Statement</a>.</p>
             <div className='butdiv'>
-            <Button className='logbutton' onClick={submit}  variant="contained">Log In</Button>
+            <Button className='logbutton' onClick={submit}  variant="contained" >Log In</Button>
+            </div>
+            <p>Don't have an account? <a href = "/register" style={{textDecoration:"none",color:"#15326F"}}>Create One</a></p>
             </div>
         </div>
     )

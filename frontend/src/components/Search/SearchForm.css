@@ -1,0 +1,13 @@
+.searchForm{
+    width: 100%;;
+    background-color: #F5F4F3;
+    display: flex;
+    justify-content:space-evenly;
+    margin: auto;
+}
+
+.Input{
+    padding: 2%;;
+    text-align: center;
+}
+

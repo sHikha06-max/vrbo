@@ -6,28 +6,26 @@ import { ImageNavbar, NavbarImage } from "./components/Navbar/NavbarImage";
 import  Register  from "./components/Register/Register";
 import { Link, Route, Router, Switch } from 'react-router-dom'
 import { HeaderImage } from "./components/HeaderImage/HeaderImage";
+import  PlaceDetail  from "./components/PlaceDetail/PlaceDetail";
 
 function App() {
   return (
     <div className="App">
-      {/* React */}
       
-      {/* <Header/> */}
-       {/* <Navbar/>  */}
-      {/* <Register/>
-        */}
-{/* <Switch>
-<Route exact path='/'  component={Login} /> 
 
-
- <Route  path = '/register' component={Register}/> 
-</Switch> */}
-       {/* <ImageNavbar/> */}
-
-{/* <NavbarImage/> */}
-<HeaderImage/>
        
-        {/* <Login/>   */}
+        <Switch>
+        
+        <Route exact path='/'  component={HeaderImage} />
+        <Route  path='/placeDetail'  component={PlaceDetail} />
+        <Route   path='/loginpage' component={Login}  />
+        <Route path='/register' component={Register} />
+        
+        </Switch>
+        
+
+       
+        
     </div>
   );
 }
