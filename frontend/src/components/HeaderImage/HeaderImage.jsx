@@ -6,6 +6,7 @@ import { SearchForm } from "../Search/SearchForm"
 
 import "./HeaderImage.css"
 import { FooterImage } from "../FooterImage/FooterImage"
+import { Footer } from "../Footer/Footer"
 
 
 
@@ -109,6 +110,9 @@ return "error"
     </div>
 
     <FooterImage/>
+    <div>
+    <Footer/>
+    </div>
  </div>
 }
 

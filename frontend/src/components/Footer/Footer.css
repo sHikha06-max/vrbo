@@ -1,0 +1,25 @@
+li{
+    list-style: none;
+}
+.right{
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid blue; */
+}
+.mainDivs{
+    display: flex;
+    justify-content: space-evenly;
+    /* border: 1px solid red; */
+}
+
+.left{
+    border: 1px solid black;
+}
+
+.tweet{
+    background-color: #DDDDDE;
+    border: 1px solid;
+    border-color: transparent;
+    border-radius: 100px;
+    width: 1%;
+}
