@@ -42,7 +42,7 @@ function submit(e){
 
    e.preventDefault()
 
-   axios.get("  https://shikha06-max.github.io/vrbo-api/data.json/imagesThree", {
+   axios.get("  http://localhost:3004/imagesThree", {
   
        }).then(resp => {
 
