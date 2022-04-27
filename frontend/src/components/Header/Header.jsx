@@ -5,14 +5,14 @@ import  "./Header.css";
 
 const Header = () => {
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
-    useEffect(()=>{
-        fetch("http://localhost:3000/images")
-        .then((res) => res.json())
-        .then((res) => dispatch(storeData(res)))
-        .catch((err)=> console.log(err))
-    },[])
+    // useEffect(()=>{
+    //     fetch("http://localhost:3000/images")
+    //     .then((res) => res.json())
+    //     .then((res) => dispatch(storeData(res)))
+    //     .catch((err)=> console.log(err))
+    // },[])
 
     const data = useSelector((state)=>state.data);
    // console.log(data,"dd");
