@@ -11,3 +11,11 @@ export const storeData  =(payload)=>{
         payload:payload
     }
 }
+
+
+export const registerData = (payload)=>{
+    return {
+        type: REGISTER_DATA,
+        payload:payload
+    }
+}
