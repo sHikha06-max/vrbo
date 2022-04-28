@@ -4,6 +4,7 @@ import { Navbar } from "../Navbar/Navbar";
 import {useParams } from 'react-router-dom';
 import { getData } from "../../redux/Information/action"
 import { useSelector,useDispatch } from "react-redux"
+import Book from "../Book/Book";
 
 
 
@@ -40,33 +41,7 @@ import { useSelector,useDispatch } from "react-redux"
     }
 
    
-    // var someData = JSON.parse(localStorage.getItem("storePlaceData"));
-   
-    // useEffect(()=>{
-       
-    //      setPlaces(someData)
-    //     },[])
-      
-        
-        //  useEffect(()=>{
-        //      let newData=[];
-        //     // let  dataGet = JSON.parse(localStorage.getItem("storePlaceData"));
-        //      console.log(someData, "someData")
-        //        let mappData=someData.map(function(el){
-        //            console.log(el.popular, popular)
-        //            console.log(el.price, price , "price")
-        //            if(el.popular==popular && el.price == price){
-        //                newData.push(el)
-              
-        //            }
-      
-        //        })
-        //        console.log(newData,"newdata")
-        //        localStorage.setItem("filteredData",JSON.stringify(newData))
-        //     let filter=   JSON.parse(localStorage.getItem("filteredData"));
-        //     setSort(filter)
-           
-        //  },[popular,price])
+    
 
 
   return <div>
@@ -97,7 +72,7 @@ import { useSelector,useDispatch } from "react-redux"
       })}
 
     </div> */}
-
+   <div>
     {apiData.filter((el)=>el.id==`${id}`)
     .map((el)=>{ return <div>
       <img src ={el.images_url}/>
@@ -110,6 +85,9 @@ import { useSelector,useDispatch } from "react-redux"
       </div>})
     
     }
+    </div>
+
+    <Book/>
   </div>
 }
 
