@@ -1,8 +1,9 @@
 import React from "react";
-
 import { useEffect, useState } from "react";
 import { Navbar } from "../Navbar/Navbar";
-
+import {useParams } from 'react-router-dom';
+import { getData } from "../../redux/Information/action"
+import { useSelector,useDispatch } from "react-redux"
 
 
 
@@ -14,6 +15,18 @@ import { Navbar } from "../Navbar/Navbar";
     const [price,setPrice] = useState("$19");
 
     const [sort,setSort] = useState([]);
+
+
+
+    const dispatch = useDispatch();
+    const {id}= useParams();
+    const apiData = useSelector((state) => state.reducer.data);
+    useEffect(() => {
+      dispatch(getData);
+      //change("/placeDetail");
+    }, []);
+  
+    console.log(apiData, "aappp")
 
     function changePopular(popular){
         setPopular(popular)
@@ -27,38 +40,38 @@ import { Navbar } from "../Navbar/Navbar";
     }
 
    
-    var someData = JSON.parse(localStorage.getItem("storePlaceData"));
+    // var someData = JSON.parse(localStorage.getItem("storePlaceData"));
    
-    useEffect(()=>{
+    // useEffect(()=>{
        
-         setPlaces(someData)
-        },[])
+    //      setPlaces(someData)
+    //     },[])
       
         
-         useEffect(()=>{
-             let newData=[];
-            // let  dataGet = JSON.parse(localStorage.getItem("storePlaceData"));
-             console.log(someData, "someData")
-               let mappData=someData.map(function(el){
-                   console.log(el.popular, popular)
-                   console.log(el.price, price , "price")
-                   if(el.popular==popular && el.price == price){
-                       newData.push(el)
+        //  useEffect(()=>{
+        //      let newData=[];
+        //     // let  dataGet = JSON.parse(localStorage.getItem("storePlaceData"));
+        //      console.log(someData, "someData")
+        //        let mappData=someData.map(function(el){
+        //            console.log(el.popular, popular)
+        //            console.log(el.price, price , "price")
+        //            if(el.popular==popular && el.price == price){
+        //                newData.push(el)
               
-                   }
+        //            }
       
-               })
-               console.log(newData,"newdata")
-               localStorage.setItem("filteredData",JSON.stringify(newData))
-            let filter=   JSON.parse(localStorage.getItem("filteredData"));
-            setSort(filter)
+        //        })
+        //        console.log(newData,"newdata")
+        //        localStorage.setItem("filteredData",JSON.stringify(newData))
+        //     let filter=   JSON.parse(localStorage.getItem("filteredData"));
+        //     setSort(filter)
            
-         },[popular,price])
+        //  },[popular,price])
 
 
   return <div>
       <Navbar/>
-   {/* {console.log(popular ,"pop")} */}
+   {/* {console.log(popular ,"pop")}
       <select  onChange={(e)=>{changePopular(e.target.value)}}name="popular" id="popular" value={popular}>
                   <option value="House">House</option>
                <option value="Condo">Condo</option>
@@ -83,7 +96,20 @@ import { Navbar } from "../Navbar/Navbar";
             </div>
       })}
 
-    </div>
+    </div> */}
+
+    {apiData.filter((el)=>el.id==`${id}`)
+    .map((el)=>{ return <div>
+      <img src ={el.images_url}/>
+      <p>{el.title}</p>
+      <p>{el.place}</p>
+      <p>{el.sleep}</p>
+      <p>{el.popular}</p>
+      <p>{el.price}</p>
+      <p>{el.rating}</p>
+      </div>})
+    
+    }
   </div>
 }
 

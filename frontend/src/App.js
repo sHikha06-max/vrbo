@@ -18,7 +18,7 @@ function App() {
        
         <Route  path='/'  element={<HeaderImage/>} />
         <Route  path='/header'  element={<Header/>} />
-        <Route  path='/placeDetail'  element={<PlaceDetail/>} />
+        <Route  path='/placeDetail/:id'  element={<PlaceDetail/>} />
         <Route   path='/loginpage' element={<Login/>}  />
         <Route  path='/register' element={<Register/>} />
        

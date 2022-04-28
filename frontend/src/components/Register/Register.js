@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import { useHistory, useNavigate } from 'react-router-dom'
-import { FormControl, FormControlLabel, FormGroup } from '@mui/material';
+import {  useNavigate } from 'react-router-dom'
+import {  FormControlLabel } from '@mui/material';
 import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import { NavbarImage } from '../Navbar/NavbarImage';

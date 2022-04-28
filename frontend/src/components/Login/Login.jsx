@@ -9,7 +9,7 @@ import { Navbar } from '../Navbar/Navbar';
 import { NavbarImage } from '../Navbar/NavbarImage';
 import Checkbox from '@mui/material/Checkbox';
 import { FormControl, FormControlLabel, FormGroup } from '@mui/material';
-
+import { useSelector , useDispatch} from 'react-redux';
 
 
 const axios = require('axios');
@@ -21,7 +21,8 @@ function Login() {
      mobile:'',
      password:''
  })
-
+  
+ 
     const change=useNavigate()
 
 function signuphandel(){
@@ -29,7 +30,7 @@ function signuphandel(){
     change.push('/signup')
 }
 
-
+//const dispatch = useDispatch();
 function handel(e){
 
     const {name,value}=e.target
@@ -46,7 +47,7 @@ function handel(e){
 function submit(e){
 
     e.preventDefault()
-
+   
     axios.get("https://data-images-server.herokuapp.com/user", {
    
         
@@ -98,7 +99,7 @@ return "error"
            <div className='innerdiv'>
             <p style={{marginLeft:"50px"}}>By signing in, I agree to the Vrbo <a href='#' style={{textDecoration:"none",color:"#15326F"}}>Terms and Conditions</a> and <a href='#' style={{textDecoration:"none",color:"#15326F"}}> Privacy Statement</a>.</p>
             <div className='butdiv'>
-        <Button className='logbutton' onClick={submit}  variant="contained" >Log In</Button>
+        <Button className='logbutton' onClick={submit}  variant="contained"  >Log In</Button>
             </div>
             <p>Don't have an account? <a href = "/register" style={{textDecoration:"none",color:"#15326F"}}>Create One</a></p>
             </div>
