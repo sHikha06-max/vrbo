@@ -46,7 +46,7 @@ function submit(e){
         email:user.email
     }
 
-    axios.post("http://localhost:3004/user", {
+    axios.post("https://data-images-server.herokuapp.com/user", {
    
           email: user.email,
           password:user.password,

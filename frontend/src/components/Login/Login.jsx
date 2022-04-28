@@ -47,7 +47,7 @@ function submit(e){
 
     e.preventDefault()
 
-    axios.get("http://localhost:3004/user", {
+    axios.get("https://data-images-server.herokuapp.com/user", {
    
         
         

@@ -25,6 +25,7 @@ const HeaderImage=()=>{
 
    useEffect(() => {
     dispatch(getData);
+    //change("/placeDetail");
   }, []);
 
   const apiData = useSelector((state) => state.reducer.data);
@@ -48,48 +49,76 @@ function submit(e){
 
    e.preventDefault()
 
-   axios.get("  http://localhost:3004/imagesThree", {
+//    axios.get("  http://localhost:3004/imagesThree", {
   
-       }).then(resp => {
+//        }).then(resp => {
 
-   const data = resp.data;
+//    const data = resp.data;
   
 //    console.log(resp)
-localStorage.setItem("storePlaceData",JSON.stringify([]))
-   apiData.map(function(el){
-       if(el.place==user.place){
+//localStorage.setItem("storePlaceData",JSON.stringify([]))
+//    {apiData.map((el)=>{return(
+//        <div>{el.place}
+//        {/* console.log(el.place, "el.place") */}
+
+// </div>
+
+//    )})
+// }
+          
+
+       
+        } 
+           //if(el.place==user.place){
       // localStorage.setItem("storePlaceData",JSON.stringify(el));
           // change.push("/placeDetail")
           //console.log("kk")
 
-          var someData  ;
-          someData = JSON.parse(localStorage.getItem("storePlaceData"));
-           if(someData==null){
-          //  localStorage.setItem("storePlaceData",JSON.stringify(el));
-             someData=[];
+        //   var someData  ;
+        //   someData = JSON.parse(localStorage.getItem("storePlaceData"));
+        //    if(someData==null){
+        //   //  localStorage.setItem("storePlaceData",JSON.stringify(el));
+        //      someData=[];
 
-           }
+            //}
 
-           else{
+    //        else{
            
-             someData = JSON.parse(localStorage.getItem("storePlaceData"));
-             //someData=[];
-            // someData.push(el)  
-            // localStorage.setItem("storePlaceData",JSON.stringify(someData));
-        }
-         someData.push(el)
-         localStorage.setItem("storePlaceData",JSON.stringify(someData))
-        // console.log(someData)
-       }
-       change("/placeDetail");
+    //          someData = JSON.parse(localStorage.getItem("storePlaceData"));
+    //          //someData=[];
+    //         // someData.push(el)  
+    //         // localStorage.setItem("storePlaceData",JSON.stringify(someData));
+    //     }
+    //      someData.push(el)
+    //      localStorage.setItem("storePlaceData",JSON.stringify(someData))
+    //     // console.log(someData)
+    //    }
+      // change("/placeDetail");
 
        
-   })
-}).catch(error => {
+   //})
+//}).catch(error => {
 
-return "error"
-});
+//return "error"
+//});
+//}
+
+{apiData.map((el)=>{
+    return(
+            <div><h1>{el.place}</h1>
+            <h1>{el.title}</h1>
+            <h1>{el.sleep}</h1>
+            <h1>{el.popular}</h1>
+            {/* console.log(el.place, "el.place") */}
+    
+     </div>
+    
+        )})
+
 }
+   
+  
+
 
  return <div>
      <div>
@@ -107,7 +136,7 @@ return "error"
                    <input type="date" placeholder="Check Out" ></input></div>
                    <div className="Input"><input type="number" placeholder="Guests"  ></input></div>
                  
-                      <Button onClick={submit}  className="Input">
+                     <Button onClick={submit}  className="Input">
                           Search
                           </Button>
                           
