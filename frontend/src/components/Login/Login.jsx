@@ -61,12 +61,15 @@ function submit(e){
     data.map(function(el){
         if(el.email==user.email&& el.password==user.password){
            // change.push("/")
+
+          
            change("/");
         }
+       
         
     })
 }).catch(error => {
-
+    
 return "error"
 });
 }

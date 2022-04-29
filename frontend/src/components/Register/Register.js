@@ -57,7 +57,8 @@ function submit(e){
         
 
 }).then(resp => {
-    console.log(resp)
+    console.log(resp);
+    alert("You have been registered");
     change("/");
 }).catch(error => {
 
